@@ -1,3 +1,9 @@
+# data files
+inputs/sweden/
+susi_2022/
+susi_SMHI/
+
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
