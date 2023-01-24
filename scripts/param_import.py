@@ -1,10 +1,20 @@
 from pandas import read_excel
 import traceback
 from datetime import datetime
-
+import os
 #import operator
 #import json
 #from functools import reduce  # forward compatibility for Python 3
+
+# create new folder if not exists already
+def mkfolder(path):
+    if not os.path.exists(path):
+        os.mkdir(path)
+        print(f'{path} has been created, ready to go')
+    else:
+        print(f'{path} already exists, ready to go')
+    return path
+
 
 #get variables
 def getVariablesFromFile(file, site, var=False):
