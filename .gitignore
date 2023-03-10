@@ -1,6 +1,7 @@
 # data files
-inputs/
+inputs/sweden/
 outputs/
+outputs_bkp/
 susi_2022/
 susi_SMHI/
 
