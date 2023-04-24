@@ -238,7 +238,7 @@ data['residuals'] = data['wt_est'] - data['wt']
 rmse = np.sqrt(np.mean(data['residuals']**2))
 
 #import matplotlib.pyplot as plt
-
+#%%
 # calculate linear regression line
 slope, intercept, r_value, p_value, std_err = linregress(data['wt'], data['wt_est'])
 line = slope * data['wt'] + intercept
@@ -257,6 +257,7 @@ r_squared = r_value ** 2
 #stats_text = f'std error: {std_err:.2f}\nR-squared: {r_squared:.2f}\np-value: {p_value:.2f}'
 stats_text = f'R\u00b2:{r_value ** 2:.2f},  p-val:{p_value:.2f}, RMSE:{rmse:.2f}'
 plt.annotate(stats_text, xy=(0.05, 0.95), xycoords='axes fraction', fontsize=9, ha='left', va='top')
+
 
 # show plot and save
 plt.show()
@@ -401,6 +402,8 @@ wtlm_location.savefig(output_folder_graph + '/wtlm_location.png', bbox_inches='t
 # Initialize an empty list to store the dataframes
 df_list = []
 
+
+
 # Loop through all subdirectories and files with the "_wt_lm.csv" extension
 for root, dirs, files in os.walk(working_folder):
     for file in files:
@@ -437,6 +440,9 @@ ax.legend(loc='upper right')
 ax.set_xlabel('pvalue')
 ax.set_ylabel('r_squared')
 ax.set_title('Observed vs. Modeled Water Table')
+plt.xlim([0, 0.2])
+plt.ylim([0, 1])
+
 
 # Display the plot
 plt.savefig(output_folder_graph + '/stats_soilType.png', bbox_inches='tight')
@@ -463,6 +469,10 @@ ax.legend(loc='upper right')
 ax.set_xlabel('pvalue')
 ax.set_ylabel('r_squared')
 ax.set_title('Observed vs. Modeled Water Table')
+
+plt.xlim([0, 0.2])
+plt.ylim([0, 1])
+
 
 plt.savefig(output_folder_graph + '/stats_species.png', bbox_inches='tight')
 plt.show()
